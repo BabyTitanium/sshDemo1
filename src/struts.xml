@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <!-- struts的action配置文件 -->
+    <!-- 将action托管给spring -->
+    <constant name="struts.objectFactory" value="spring" />
+
+    <!-- 所有的action都应该放在对应的package下 -->
+    <!--action的class属性不再是具体的类,而是spring配置文件配置的bean id-->
+    <package name="test" namespace="/test" extends="struts-default">
+        <global-allowed-methods>method</global-allowed-methods>
+        <action name="indexTest" class="IndexAction" method="test">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+</struts>
